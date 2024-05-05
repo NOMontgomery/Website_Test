@@ -35,4 +35,4 @@ scope = ""
 platform = ""
 
 #
-default_base_url = "http://the-internet.herokuapp.com"
+# default_base_url = "https://www.xbox.com/en-US/"

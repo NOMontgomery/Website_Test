@@ -1,7 +1,8 @@
 import pytest
 
-from . import config
+from integration_tests.tests import config
 from integration_tests.common.driver_manager import DriverManager
+
 
 def pytest_addoption(parser):
     """
@@ -11,43 +12,48 @@ def pytest_addoption(parser):
         parser Parser: pytest command line parser
     """
     parser.addoption("--baseurl",
-                     action = "store",
-                     default = config.default_base_url,
-                     help = "Base URL for the application under test")
+                     action="store",
+                     default=config.default_base_url,
+                     help="Base URL for the application under test")
     parser.addoption("--browser",
-                      action = "store",
-                      default = "chrome",
-                      help = "The name of the browser to test with"
-                      )
+                     action="store",
+                     default="chrome",
+                     help="The name of the browser to test with"
+                     )
     parser.addoption("--host",
-                    action = "store",
-                    default = "local",
-                    help = "The name of the host to run tests in"
-                    )
+                     action="store",
+                     default="local",
+                     help="The name of the host to run tests in"
+                     )
     parser.addoption("--headless",
-                    action = "store",
-                    default = "true",
-                    help = "Switch to run headless or not"
-                    )
+                     action="store",
+                     default="true",
+                     help="Switch to run headless or not"
+                     )
     parser.addoption("--start-maximized",
-                      action = "store",
-                      default = "true",
-                      help = "Switch to maximized or not"
-                      )
+                     action="store",
+                     default="true",
+                     help="Switch to maximized or not"
+                     )
     parser.addoption("--scope",
-                      action = "store",
-                      default = "session",
-                      help = "Scope for which the driver exists"
-                      )
+                     action="store",
+                     default="session",
+                     help="Scope for which the driver exists"
+                     )
     parser.addoption("--platform",
-                    action = "store",
-                    default = "Windows 11",
-                    help = "Platform to run tests on remote"
-                    )
+                     action="store",
+                     default="Windows 11",
+                     help="Platform to run tests on remote"
+                     )
+
+    @pytest.fixture
+    def action():
+        return ActionChains(self.driver)
 
 def get_scope(fixture_name, config):
     config.scope = config.getoption("--scope")
     return config.scope
+
 
 @pytest.fixture
 def driver(request):
@@ -70,7 +76,7 @@ def driver(request):
     config.host = request.config.getoption("--host").lower()
     config.headless = request.config.getoption("--headless")
     config.start_maximized = request.config.getoption("--start-maximized")
-    
+
     # Get a shared drive instance
     driver_ = DriverManager.get_driver()
 
@@ -79,10 +85,8 @@ def driver(request):
         Cleans up the driver.
         """
         DriverManager.quit_session()
+
     # Schedule the clean up function to run after the test
     request.addfinalizer(quit)
     # Passes the driver to any test that invokes it as an argument
     return driver_
-
-
-    

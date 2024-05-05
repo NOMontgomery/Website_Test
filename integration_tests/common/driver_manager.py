@@ -19,6 +19,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from ..tests import config
 
+
 class DriverManager():
     
     """

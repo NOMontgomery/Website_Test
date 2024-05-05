@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from integration_tests.pages.base_page import BasePage
+from ..base_page import BasePage
 
 
 class FileUploadPage(BasePage):
@@ -13,7 +13,7 @@ class FileUploadPage(BasePage):
 
     def upload_file(self, file):
         self._load("/upload")
-        self._type(self._upload_file, file)
+        self._type(self.upload_file, file)
         self._click(self._file_submit)
 
     def file_is_uploaded(self, filename):

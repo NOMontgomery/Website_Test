@@ -1,6 +1,6 @@
 import pytest
 
-from integration_tests.pages.demo.login_page import LoginPage
+from integration_test.pages.demo.login_page import LoginPage
 
 
 class TestLogin():
