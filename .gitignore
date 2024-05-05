@@ -169,16 +169,13 @@ integration_tests/user_creds.py
 integration_tests/vendor/*
 integration_tests/resources/drivers/
 integration_tests/common/user_creds.py
-<<<<<<< HEAD
 integration_tests/.idea
 .idea/
 allure-report/*.*
 .report.htm
-=======
 assets/
 allure-report/
 report.*
 result.*
 integration_tests/report.*
 integration_tests/result.*
->>>>>>> b86817008229294af85971a22ae94a69875f969e

@@ -13,11 +13,8 @@ class BasePage():
     Base Page for generic pages
     
     """
-<<<<<<< HEAD
 
-=======
         
->>>>>>> b86817008229294af85971a22ae94a69875f969e
     def __init__(self, driver):
         """
         Initializes Base page.
@@ -25,7 +22,6 @@ class BasePage():
         """
         # Driver passed in to Page from instantiating test
         self.driver = driver
-<<<<<<< HEAD
 
         # Gets the base URL from 'conf.py' Base URL is set by a command line option defined in conftest.py. It defaults to 'hudl.com'. 
         # The value is stored in conf.py in conftest.py.  
@@ -34,7 +30,6 @@ class BasePage():
         # Defines generic URL to be used in methods common to all Pages. It is overwritten by the individual Pages as required.
         self._url = ""
 
-=======
         
         # Defines generic URL to be used in methods common to all Pages. It is overwritten by the individual Pages as required.
         self.url_ = ""
@@ -43,7 +38,6 @@ class BasePage():
 
         # self.baseurl_ = ""
                 
->>>>>>> b86817008229294af85971a22ae94a69875f969e
         # Define a common locator to be used by wait_for_page_to_load(). It is overwritten by the individual Pages as required.
         self._page_loaded_indicator = (By.ID, "")  # Must be filled in if not overwritten by individual pages
 
@@ -52,19 +46,9 @@ class BasePage():
         Opens the page specified by _url. When invoked on a specific page (e.g. Login page) it opens that page.
         
         """
-<<<<<<< HEAD
-        if self._url == "":
-            self._url = url
-        if self._url.startswith("http"):
-            self.driver.get(self._url)
-        else:
-            self._url = config.baseurl + self._url
-            self.driver.get(config.baseurl + self._url)
-=======
         self.url_ = url
         print("\n***** self.url_:  " + self.url_ + " *****\n")
         self.driver.get(self.url_)
->>>>>>> b86817008229294af85971a22ae94a69875f969e
 
     def _find(self, locator):
         return self.driver.find_element(locator['by'], locator['value'])
