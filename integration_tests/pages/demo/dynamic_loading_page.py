@@ -1,16 +1,17 @@
 from selenium.webdriver.common.by import By
-from integration_tests.pages.base_page import BasePage
+from integration_tests.pages.demo.base_demo_page import BaseDemoPage
+from . import config
 
 
-class DynamicLoadingPage(BasePage):
+class DynamicLoadingPage(BaseDemoPage):
     _start_button = {"by": By.CSS_SELECTOR, "value": "#start button"}
     _finish_text = {"by": By.ID, "value": "finish"}
 
     def ___init___(self, driver):
-        self.driver = driver
+        super.__init__(driver)
 
     def load_example(self, example_number):
-        self._load("/dynamic_loading/" + example_number)
+        self._demo_load("/dynamic_loading/" + example_number)
         self._click(self._start_button)
 
     def finish_text_present(self):

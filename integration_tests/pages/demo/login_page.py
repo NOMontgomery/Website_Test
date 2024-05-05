@@ -1,6 +1,12 @@
 from selenium.webdriver.common.by import By
+<<<<<<< HEAD
 from ..base_page import BasePage
 from ...tests import config
+=======
+from integration_tests.pages.base_page import BasePage
+
+from . import config
+>>>>>>> b86817008229294af85971a22ae94a69875f969e
 
 
 class LoginPage(BasePage):
@@ -13,10 +19,7 @@ class LoginPage(BasePage):
 
     def __init__(self, driver, url="/login"):
         self.driver = driver
-        if url.startswith("http"):
-            self.driver.get(url)
-        else:
-            self.driver.get(config.baseurl + url)
+        self.driver.get(config.baseurl + url)
         assert self._is_displayed(self._login_form)
 
     def with_(self, username, password):

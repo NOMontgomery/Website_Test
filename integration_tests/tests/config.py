@@ -33,6 +33,9 @@ scope = ""
 # Set in conftest.py based on command line paramete '--platform'
 # Command line parameter is defined in conftest.py and defaults to "Windows 11"
 platform = ""
+<<<<<<< HEAD
 
 #
 # default_base_url = "https://www.xbox.com/en-US/"
+=======
+>>>>>>> b86817008229294af85971a22ae94a69875f969e
