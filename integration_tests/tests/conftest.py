@@ -1,5 +1,5 @@
 import pytest
-
+from selenium.webdriver.common.action_chains import ActionChains as action
 from integration_tests.tests import config
 from integration_tests.common.driver_manager import DriverManager
 
@@ -27,7 +27,7 @@ def pytest_addoption(parser):
                      )
     parser.addoption("--headless",
                      action="store",
-                     default="true",
+                     default="false",
                      help="Switch to run headless or not"
                      )
     parser.addoption("--start-maximized",
@@ -46,9 +46,9 @@ def pytest_addoption(parser):
                      help="Platform to run tests on remote"
                      )
 
-    @pytest.fixture
-    def action():
-        return ActionChains(self.driver)
+    # @pytest.fixture
+    # def action():
+    #     return ActionChains(self.driver)
 
 def get_scope(fixture_name, config):
     config.scope = config.getoption("--scope")

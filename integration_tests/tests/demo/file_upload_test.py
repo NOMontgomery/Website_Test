@@ -12,12 +12,6 @@ class TestFileUpload():
     def file_upload(self, driver):
         return FileUploadPage(driver)
     
-<<<<<<< HEAD
-    filename = "somefile.txt"
-    file = os.path.join(os.getcwd(), "resources/" + filename)
-
-=======
->>>>>>> b86817008229294af85971a22ae94a69875f969e
     def test_file_upload(self, file_upload):
         cwd_ = os.getcwd()
         path_to_file_ = os.path.join(cwd_, "resources/") if "integration_tests" in cwd_ else os.path.join(cwd_, "integration_tests/resources/")

@@ -67,14 +67,14 @@ class BasePage():
         """
         WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(self._page_loaded_indicator))
 
-    def _is_current_page(self):
+    def _is_current_page(self, url):
         """
         Checks whether or not the Page on which it is invoked is actually the current page.
         Used to verify if the current page is the expected page.
         Returns:
             bool: Indicates whether or not the page it is called on is the current page.
         """
-        return self.driver.current_url in self._url
+        return self.driver.current_url in url
 
     def _is_displayed(self, locator, timeout=0):
         """

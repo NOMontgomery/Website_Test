@@ -1,12 +1,7 @@
 from selenium.webdriver.common.by import By
-<<<<<<< HEAD
-from ..base_page import BasePage
-from ...tests import config
-=======
 from integration_tests.pages.base_page import BasePage
 
 from . import config
->>>>>>> b86817008229294af85971a22ae94a69875f969e
 
 
 class LoginPage(BasePage):
